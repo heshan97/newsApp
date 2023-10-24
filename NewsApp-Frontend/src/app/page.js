@@ -8,9 +8,10 @@ import Image from 'next/image'
 import React,{useState, useEffect } from 'react' 
 import DashboardScreen from './dashboard/dashboardScreen/page'
 import data from './newsCard/data';
-
+import { useRouter } from 'next/navigation';
 export default function Home() {
-  
+  const router = useRouter();
+
   return (
     <main>
       {/* <Navbar/> */}

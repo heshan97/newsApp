@@ -1,14 +1,76 @@
+'use client'
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+import axios from 'axios';
+import Cookies from 'js-cookie';
 export default function AddArticle(){
-    
+     // const dispatch = useDispatch();
+  const [state, setState] = useState({
+    title: '',
+    description: '',
+    content: '',
+    author: '',
+    image: ''
+  })
+  //const router = useRouter();
+  const { push } = useRouter();
+
+  const onSubmitHandle = async (event) => {
+    event.preventDefault();
+    // console.log(state);
+
+    try {
+      const token= Cookies.get('loginToken');
+      axios({
+     
+        method: 'post',
+        url:'http://localhost:5000/api/news',
+        data: state,headers: {
+          'Authorization': 'Bearer ' +token,
+          // Other headers can be added here if needed
+        }
+      })
+        .then(function (response) {
+          console.log(response)
+          if (response?.data?.token !== '' && response?.data?.token !== null) {
+            // values._token = response?.data?.token;
+            //setTempToken(response?.data?.token)
+            console.log(response?.data?.token);
+            Cookies.set('loginToken', response?.data?.token, { expires: 7 });
+           // push('/')
+            window.location.href = '/dashboard/dashboardScreen';
+            // dispatch(auth.actions.login(response?.data?.token))
+            // dispatch(auth.actions.setUser(response?.data))
+          } else {
+            // setLoading(false);
+            // setSubmitting(false)
+            // setStatus(response.data.message)
+          }
+        })
+        .catch(function (error) {
+          // setLoading(false)
+          // setSubmitting(false)
+          // setStatus('The login detail is incorrect')
+        })
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  }
+
+  const handleChange = event => {
+    setState({...state, [event.target.name]: event.target.value });
+  }
+
+
     return(   
-      <div className=" flex-col justify-center px-6 py-4 lg:px-8 ">
+      <div className=" flex-col justify-center px-6 lg:px-8 ">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-4 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Add new Article
         </h2>
       </div>
       <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form onSubmit={onSubmitHandle} className="space-y-6" action="#" method="POST">
           <div>
             <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
              Title
@@ -17,8 +79,10 @@ export default function AddArticle(){
               <input
                 id="title"
                 name="title"
-                type="title"
-                autoComplete="email"
+                type="text"
+                value={state.title}
+                onChange={handleChange}
+                autoComplete="title"
                 required
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
               />
@@ -31,10 +95,49 @@ export default function AddArticle(){
             </label>
             <div className="mt-2">
               <textarea
-                id="title"
-                name="title"
-                type="title"
-                autoComplete="email"
+                id="description"
+                name="description"
+                type="text"
+                value={state.description}
+                onChange={handleChange}
+                autoComplete="description"
+               
+                required
+                className="p-2.5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label  className="block text-sm font-medium leading-6 text-gray-900">
+             Content
+            </label>
+            <div className="mt-2">
+              <textarea
+                id="content"
+                name="content"
+                type="text"
+                value={state.content}
+                onChange={handleChange}
+                autoComplete="content"
+                required
+                className="p-2.5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label  className="block text-sm font-medium leading-6 text-gray-900">
+             Author
+            </label>
+            <div className="mt-2">
+              <textarea
+                id="author"
+                name="author"
+                type="text"
+                value={state.author}
+                onChange={handleChange}
+                autoComplete="author"
                 required
                 className="p-2.5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
               />
@@ -44,17 +147,19 @@ export default function AddArticle(){
 
           <div>
             <div className="flex items-center justify-between">
-              <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
-                Password
+              <label htmlFor="image" className="block text-sm font-medium leading-6 text-gray-900">
+                Image
               </label>
 
             </div>
             <div className="mt-2">
               <input
-                id="password"
-                name="password"
-                type="file"
-                autoComplete="current-password"
+                id="image"
+                name="image"
+                type="text"
+                value={state.image}
+                onChange={handleChange}
+                autoComplete="image"
                 required
                 className=""
               />
@@ -71,12 +176,12 @@ export default function AddArticle(){
           </div>
         </form>
 
-        <p className="mt-10 text-center text-sm text-gray-500">
+        {/* <p className="mt-10 text-center text-sm text-gray-500">
           Not a member?{' '}
           <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
            Register
           </a>
-        </p>
+        </p> */}
       </div>
     </div>
   

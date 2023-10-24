@@ -6,9 +6,6 @@ function Recent() {
   const [message, setMessage] = useState("");
   console.log("Test");
   useEffect(() => {
-
-
-
   console.log("Test");
 
     setMessage("Loading");

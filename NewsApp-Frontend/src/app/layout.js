@@ -1,6 +1,9 @@
 import {  Montserrat } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
+import { Provider } from 'react-redux';
+import store from '../../redux/store';
+
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
@@ -11,11 +14,13 @@ export const metadata = {
 
 export default function Layout({ children }) {
   return (
-    <html><body className={montserrat.className}>
+    <html>
+      <body className={montserrat.className}>
     <div className="">
     <Navbar/>
       <main className=''> {children}</main>
     </div>
-  </body></html>
+  </body>
+  </html>
   )
 }

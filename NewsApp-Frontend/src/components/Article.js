@@ -3,9 +3,7 @@ import React from 'react';
 
 
 
-const ArticlePage = ({ params }) => {
-
-  console.log("article id ", params.id)
+const Article = () => {
   // Sample article data for demonstration (replace with actual data)
   const article = {
     title: 'Presidential and parliamentary elections will be held in 2024 – President Ranil',
@@ -42,4 +40,4 @@ const ArticlePage = ({ params }) => {
   );
 };
 
-export default ArticlePage;
+export default Article;

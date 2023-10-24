@@ -38,6 +38,7 @@ const registerAdmin = async (req, res) => {
 const loginAdmin = async (req, res) => {
     try {
         const admin = await Admin.findOne({ email: req.body.email });
+        
         if (admin && bcrypt.compareSync(req.body.password, admin.password)) {
             const token = signInToken(admin);
             res.send({
