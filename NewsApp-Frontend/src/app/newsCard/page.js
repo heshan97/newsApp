@@ -6,7 +6,7 @@ export default function NewsCard (){
     <div className="container mx-auto py-6 px-8 ">
        <div className="grid lg:grid-cols-4 gap-4 md:grid-cols-2 sm:grid-cols-1">
        {cardList.map(card =>(
-           <div  key={card.id} className="shadow-lg rounded-lg">
+           <div  key={card.id}className="shadow-lg rounded-lg">
                 <img className="rounded-t-lg " src={card.img} alt=""/>
                 <div className="p-5">
                     <div className=" ">

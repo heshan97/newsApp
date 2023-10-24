@@ -11,11 +11,11 @@ export const metadata = {
 
 export default function Layout({ children }) {
   return (
-    <body className={montserrat.className}>
+    <html><body className={montserrat.className}>
     <div className="">
     <Navbar/>
       <main className=''> {children}</main>
     </div>
-  </body>
+  </body></html>
   )
 }

@@ -1,24 +1,3 @@
-// 'use client';
-// const { useState, useEffect } = require("react");
-
-// function Recent (){
-//     const [message, setMessage] = useState("Loading")
-//     useEffect(()=>{
-//         console.log("Test")
-//         fetch("http://localhost:5000/api").then(
-//           Response => Response.json()
-//         ).then(
-//           data=>{
-//             console.log(data)
-//             setMessage(data.message)
-//           }
-//         )
-//       },[])
-//       return(
-//         <div>{message}</div>
-//       )
-// }
-// export default Recent
 'use client'
 import axios from 'axios';
 import { useState, useEffect } from "react";
@@ -26,10 +5,14 @@ import { useState, useEffect } from "react";
 function Recent() {
   const [message, setMessage] = useState("");
   console.log("Test");
-
   useEffect(() => {
+
+
+
+  console.log("Test");
+
     setMessage("Loading");
-    const apiUrl = 'http://localhost:5000';
+    const apiUrl = 'http://localhost:5000/';
 
     axios.get(apiUrl)
       .then(response => {
@@ -43,7 +26,10 @@ function Recent() {
   }, []);
 
   return (
+  <>
+    <h1 className=''>hvgfffffffcv</h1>
     <div>{message}</div>
+    </>
   );
 }
 
