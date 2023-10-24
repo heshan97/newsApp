@@ -42,7 +42,7 @@ const updateNews = async (req, res) => {
         if (news) {
             news.title = req.body.title;
             news.description = req.body.description;
-            news.content = req.body.description;
+            news.content = req.body.content;
             news.author = req.body.author;
             news.image = req.body.image;            
             await news.save();

@@ -18,18 +18,19 @@ export default function DashboardScreen (){
                 <div className="basis-1/4 flex flex-col items-center  ">
                     <img src="/logo/logo.png" className="h-20"/>
                 </div>
-                <div className="basis-1/2 flex flex-col items-left ">
-                    <h1 className="font-bold">India’s NIA arrests key accused in Sri Lankan human trafficking case - report</h1>
-                    <p>The National Investigation Agency (NIA) of India sleuths nabbed the kingpin of a human trafficking racket involved in an attempt to send 61 Sri Lankan nationals abroad illegally after bringing them to India in 2021. MORE..</p>
-                    <div className="flex justify-between font-bold text-gray-700">
+                <div className="basis-1/2 flex flex-col items-left mt-1 ">
+                    <h1 className="font-bold mb-1">India’s NIA arrests key accused in Sri Lankan human trafficking case - report</h1>
+                    <p className="mb-1">The National Investigation Agency (NIA) of India sleuths nabbed the kingpin of a human trafficking racket involved in an attempt to send 61 Sri Lankan nationals abroad illegally after bringing them to India in 2021. MORE..</p>
+                    <div className="flex justify-between font-bold text-gray-700 mb-1">
                         <span className=" text-xs">Times of India</span>
                         <span className=" text-xs">October 22, 2023   07:21 pm</span>
                     </div>
                 </div>
                 <div className="basis-1/4 flex flex-row items-center justify-center gap-4">
-                <HiPencilAlt size={20} className="text-black" />
-                <MdOutlineDeleteOutline size={25} className="text-black" />
-                <GrFormView size={25} className="text-black" />
+                <GrFormView size={33} className="text-black" />
+                <HiPencilAlt size={22} className="text-black" />
+                <MdOutlineDeleteOutline size={25} className="text" />
+                
                 
                 </div>
             </div>

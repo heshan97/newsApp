@@ -10,14 +10,25 @@ const adminRoutes = require('../routes/adminRoutes');
 connectDataBase();
 dotenv.config();
 const app = express();
+app.use(cors());
 
 //root route
 app.get('/', (req, res) => {
-    res.send('App works properly!');
+    res.send({message:'App works properly!'});
 });
 
 // Middleware
-app.use(cors());
+const corsOptions = {
+    origin: '*', // Replace with the URL of your client app
+    methods: ['GET,HEAD,PUT,PATCH,POST,DELETE'],
+    credentials: true, // Allow cookies, sessions, and other credentials to be sent
+    optionsSuccessStatus: 204, // Set the response status code for successful CORS preflight requests
+  };
+  
+app.use(cors(corsOptions));
+  
+
+// app.use(cors());
 app.use(express.json());
 
 //routes
