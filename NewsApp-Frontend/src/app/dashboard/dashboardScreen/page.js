@@ -1,6 +1,7 @@
 import { HiPencilAlt } from "react-icons/hi";
 import {MdOutlineDeleteOutline} from"react-icons/md"
 import {GrFormView} from"react-icons/gr"
+import Link from "next/link";
 
 export default function DashboardScreen (){
     return(
@@ -9,12 +10,12 @@ export default function DashboardScreen (){
             <div className="basis-1/3 font-bold flex flex-col items-center justify-center">Dashboard</div>
             <div className="basis-1/3 flex flex-col items-center justify-center"></div>
             <div className="basis-1/3 flex flex-col items-center justify-center">
-                <div className="rounded-full text-sm border-gray-200 bg-black-500 hover:bg-red-500 text-white font-bold bg-slate-900 px-5 py-2">
+                <Link href="/dashboard/addArticles" className="rounded-full text-sm border-gray-200 bg-black-500 hover:bg-red-500 text-white font-bold bg-slate-900 px-5 py-2">
                     Add Articles
-                </div>
+                </Link>
             </div>
             </div>
-            <div className="flex flex-row border border-red-100 justify-evenly mx-14 mt-10 text-xs">
+            <div className="flex flex-row border border-red-100 justify-evenly mx-14 mt-4 text-xs">
                 <div className="basis-1/4 flex flex-col items-center  ">
                     <img src="/logo/logo.png" className="h-20"/>
                 </div>

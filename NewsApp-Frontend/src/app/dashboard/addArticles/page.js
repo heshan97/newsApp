@@ -84,7 +84,7 @@ export default function AddArticle(){
                 onChange={handleChange}
                 autoComplete="title"
                 required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
+                className="p-2.5 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -147,7 +147,7 @@ export default function AddArticle(){
 
           <div>
             <div className="flex items-center justify-between">
-              <label htmlFor="image" className="block text-sm font-medium leading-6 text-gray-900">
+              <label htmlFor="image" className="block text-sm font-medium leading-6 text-gray-900 ">
                 Image
               </label>
 

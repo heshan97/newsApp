@@ -43,13 +43,13 @@ const handleLogout = () => {
             <div className="basis-1/4 flex items-center ">
 
             {MdGeneratingTokens ? (<>
-              <Link onClick={handleLogout} className="mr-4 rounded-full border-gray-200 bg-red-900 hover:bg-red-500 text-white font-bold  px-5 py-3" href="/login">
+              <Link onClick={handleLogout} className="mr-4 rounded-full border-gray-200 bg-red-900 hover:bg-red-500 text-white font-bold  px-5 py-2" href="/login">
                 Logout
               </Link></>) : (<>
-              <Link className="mr-4 rounded-full border-gray-200 bg-yellow-400 hover:bg-red-500 text-black  px-5 py-3" href="/login">
+              <Link className="mr-4 rounded-full border-gray-200 bg-yellow-400 hover:bg-red-500 text-black  px-5 py-2" href="/login">
                 Login
               </Link>
-              <Link className="border border-dark rounded-full  bg-white hover:bg-red-500 text-black  px-5 py-3" href="/register">
+              <Link className="border border-dark rounded-full  bg-white hover:bg-red-500 text-black  px-5 py-2" href="/register">
                 Register
               </Link>
               </>
