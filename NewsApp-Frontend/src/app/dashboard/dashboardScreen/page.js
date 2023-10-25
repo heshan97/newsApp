@@ -2,6 +2,7 @@ import { HiPencilAlt } from "react-icons/hi";
 import {MdOutlineDeleteOutline} from"react-icons/md"
 import {GrFormView} from"react-icons/gr"
 import Link from "next/link";
+import AdminNewsList from "@/components/adminNewsList";
 
 export default function DashboardScreen (){
     return(
@@ -15,7 +16,7 @@ export default function DashboardScreen (){
                 </Link>
             </div>
             </div>
-            <div className="flex flex-row border border-red-100 justify-evenly mx-14 mt-4 text-xs">
+            {/* <div className="flex flex-row border border-red-100 justify-evenly mx-14 mt-4 text-xs">
                 <div className="basis-1/4 flex flex-col items-center  ">
                     <img src="/logo/logo.png" className="h-20"/>
                 </div>
@@ -34,7 +35,9 @@ export default function DashboardScreen (){
                 
                 
                 </div>
-            </div>
+            </div> */}
+
+            <AdminNewsList/>
             </> 
     )
 }
